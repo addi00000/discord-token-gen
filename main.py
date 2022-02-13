@@ -26,19 +26,19 @@ def mfa_crack():
         headers=getheaders(token))
     
     if r.status_code == 200:
-        print(Fore.GREEN + f"- Valid Token. ({token}) | [{r.status_code}] | (Written to file)\n")   
+        print(Fore.GREEN + f"- Valid Token. ({token}) | [{r.status_code}] | (Written to file)\n" + Style.RESET_ALL)   
         with open("valid-token.txt", "a") as f:
             f.write(f"\n{token}\n")   
              
     elif r.status_code == 401:
-        print(Fore.RED + f"- Invalid Token. ({token}) | [{r.status_code}]\n")
+        print(Fore.RED + f"- Invalid Token. ({token}) | [{r.status_code}]\n" + Style.RESET_ALL)
         
     elif r.status_code == 429:
-        print(Fore.YELLOW + f"- Rate limit exceded!\n")
+        print(Fore.YELLOW + f"- Rate limit exceded!\n" + Style.RESET_ALL)
         exit()
     
     else:
-        print(Fore.YELLOW + f"Unknown error code thrown. Exiting . . . | [{r.status_code}]")
+        print(Fore.YELLOW + f"Unknown error code thrown. Exiting . . . | [{r.status_code}]" + Style.RESET_ALL)
         exit()
 
 def reg_crack():
@@ -49,19 +49,19 @@ def reg_crack():
         headers=getheaders(token))
     
     if r.status_code == 200:
-        print(Fore.GREEN + f"- Valid Token. ({token}) | [{r.status_code}] | (Written to file)\n")    
+        print(Fore.GREEN + f"- Valid Token. ({token}) | [{r.status_code}] | (Written to file)\n" + Style.RESET_ALL)    
         with open("valid-token.txt", "a") as f:
             f.write(f"\n{token}\n")    
         
     elif r.status_code == 401:
-        print(Fore.RED + f"- Invalid Token. ({token}) | [{r.status_code}]\n")
+        print(Fore.RED + f"- Invalid Token. ({token}) | [{r.status_code}]\n" + Style.RESET_ALL)
         
     elif r.status_code == 429:
-        print(Fore.YELLOW + f"- Rate limit exceded!\n")
+        print(Fore.YELLOW + f"- Rate limit exceded!\n" + Style.RESET_ALL)
         exit()
     
     else:
-        print(Fore.YELLOW + f"Unknown code thrown. Exiting . . . [{r.status_code}]")
+        print(Fore.YELLOW + f"Unknown code thrown. Exiting . . . [{r.status_code}]" + Style.RESET_ALL)
         exit()
     
 def main():
